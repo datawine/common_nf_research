@@ -52,12 +52,21 @@ Traffic Monitoring(prads)
     - 根据实际信息更新统计数据（主要统计流量）
 
 IDS/IPS
-维护状态
-workflow
+- 参考资料
+    - https://www.snort.org/snort3
+- 维护状态
+    - 黑名单
+    - 流表
+    - 连接信息(如检测到可疑信息次数等)
+- workflow
+    - 根据流表判断新旧连接，新连接创建分别的监听对象
+    - 持续监听所有连接，检测签名异常、非正常请求、违反协议等。
 
 Web proxy
-维护状态
-workflow
+- 参考资料
+    - https://github.com/squid-cache/squid
+- 维护状态
+- workflow
 
 EPC
 维护状态
