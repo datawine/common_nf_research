@@ -66,11 +66,23 @@ Web proxy
 - 参考资料
     - https://github.com/squid-cache/squid
 - 维护状态
+    - 流表
+    - 以某种形式组织的网页相关cache
 - workflow
+    - 以上面的squid为例，包括一个主要的服务程序squid，dns查询程序dnsserver，几个重写请求和执行认证的程序
+    - 根据流表判断新旧连接，新连接创建新的相关instance
+    - 连接请求过的资源会被以Interent Cache Protocol缓存
+    - 每次连接请求新的资源，会通过hash中寻找资源，如果没有，可以向sibling node请求资料，如果sibling没有，直接向parent node要数据，parent也没有就会访问internet。然后将请求到的数据缓存下来。
 
 EPC
-维护状态
-workflow
+- 参考资料
+    - https://gitlab.eurecom.fr/oai/openair-cn/tree/master/
+- 维护状态
+    - 用户状态
+    - SLA/Usage per device/plan（这是根据S6论文上总结的加上的，但是我并没有看到相应的东西）
+- workflow
+    - EPC由以下四个部分组成：移动管理实体，用来根据数据管理会话的状态、认证并追踪用户；服务网关；分组数据节点网关，作为LTE网络和其他分组数据网络间的端口，管理服务质量并提供深度数据包检测；政策及收费功能
+    - 整个流的流向是比较复杂的一张图，大概经过上述的四个部件，并对相应的数据包进行封装，统计相应的数据
 
 IMS
 维护状态
