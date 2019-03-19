@@ -85,8 +85,14 @@ EPC
     - 整个流的流向是比较复杂的一张图，大概经过上述的四个部件，并对相应的数据包进行封装，统计相应的数据
 
 IMS
-维护状态
-workflow
+- 参考资料
+    - https://www.openimscore.com/
+    - https://zh.wikipedia.org/wiki/IP%E5%A4%9A%E5%AA%92%E4%BD%93%E5%AD%90%E7%B3%BB%E7%BB%9F
+- 维护状态
+    - SIP/RTP会话
+    - 用户的使用状态和消费账单
+- workflow
+    - IMS主要提供一套会话控制系统，来方便用户通过IMS进行多媒体传输，主要是以会话为单位进行操作
 
 iptables
 
