@@ -138,8 +138,8 @@ Traffic Shaper
 - 参考资料
     - linux traffic control
     - https://en.wikipedia.org/wiki/Tc_(Linux)
-    - ![](img-blog.csdn.net/20141026225407377?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZG9nMjUw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 - 维护状态
+    - ![](./traffic_shaper1.jpeg)
     -  
 - workflow
 
