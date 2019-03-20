@@ -17,8 +17,9 @@ compression
     - https://www.cisco.com/c/en/us/support/docs/wan/data-compression/14156-compress-overview.html
 - 维护状态
     - 流表
+    - 字符串映射规则
 - workflow
-    - cisco的ios系统中涉及到了压缩。一般来说有
+    - cisco的ios系统中涉及到了压缩。可以压缩整个包、压缩头部、压缩负载部分。压缩的过程是以连接为核心的。对每个单独的连接进行分别的压缩，根据规则选择相应的压缩方法。
 
 EPC
 - 参考资料
@@ -55,6 +56,13 @@ Firewall
         - iptables还带有NAT功能。NAT属于prerouting过程，优先于filter执行。
 
 Gateway(Conf/Voice/Media)
+- 参考资料
+    - https://www.cisco.com/c/en/us/products/switches/mgx-8800-series-switches/index.html
+- 维护状态
+    - MAC地址表
+    - 路由表
+- workflow
+    - 在执行过滤和转发过程中的时候，会读取数据包的源ip和目的ip，通过全局的MAC地址表或者路由表进行转发和过滤。
 
 IMS
 - 参考资料
@@ -101,8 +109,6 @@ NAT
     - 通过流表判断新旧连接
     - 维护一个内网-外网地址映射，对于新的连接，创建映射并放到地址池中。一般来说需要重新计算涉及到ip地址的计算（如校验和），都需要重新计算。至于映射的释放，端口的变更，有各种不同的实现考虑。
 
-Gateway(Conf/Voice/Media)
-
 Monitor(prads)
 - 参考资料
     - http://manpages.ubuntu.com/manpages/xenial/en/man1/prads.1.html
@@ -129,7 +135,16 @@ Proxy
     - 每次连接请求新的资源，会通过hash中寻找资源，如果没有，可以向sibling node请求资料，如果sibling没有，直接向parent node要数据，parent也没有就会访问internet。然后将请求到的数据缓存下来。
 
 Traffic Shaper
+- 参考资料
+    - linux traffic control
+    - https://en.wikipedia.org/wiki/Tc_(Linux)
+    - ![](img-blog.csdn.net/20141026225407377?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZG9nMjUw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+- 维护状态
+    -  
+- workflow
 
 VPN
 openvpn
+
+ipsec
 
