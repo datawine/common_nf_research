@@ -95,6 +95,15 @@ IMS
     - IMS主要提供一套会话控制系统，来方便用户通过IMS进行多媒体传输，主要是以会话为单位进行操作
 
 iptables
+- 参考资料
+    - ubuntu iptables 1.2.7
+- 维护状态
+    - iptables结构变量(iptables_matches, iptables_targets)
+    - 用链表构成的规则容器
+    - 流表
+- workflow
+    - 用户的数据报是层层过滤的，逐条匹配iptables中的规则，防火墙的默认规则位于最后一条，如果前面匹配成功则执行相应规则，忽略后面的规则。
+    - iptables还带有NAT功能。NAT属于prerouting过程，优先于filter执行。
 
 NIDS cluster
 
