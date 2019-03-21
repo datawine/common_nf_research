@@ -163,8 +163,28 @@ Traffic Shaper
 
 VPN(openvpn)
 - 参考资料
+    - https://openvpn.net/
 - 维护状态
+    - 虚拟网卡及配置信息
+    - 加解密配置
+    - IP地址、路由设置
 - workflow
+    - ![](./vpn1.jpg)
+    - 一个新的数据包到达发送方后，通过虚拟的网卡或者隧道，在包的外层封装一层虚拟的ip头、tcp/udp头，到达路由器，路由器通过tcp/udp套接字，并发往用户态的vpn加密模块，经过加密之后可以发送到接收方。
+    - 接收方通过解密，将解密后的数据发送给tcp/udp套接字，脱去封装的虚拟ip、tcp/udp头，用虚拟的网卡或者隧道进行最后的转发。
 
 ipsec
+- 参考资料
+    - https://zh.wikipedia.org/wiki/IPsec
+    - https://zh.wikipedia.org/wiki/StrongSwan
+- 维护状态
+    - 当前SA(security association)
+- workflow
+    - ![](./ipsec1.jpg)
+    - ![](./ipsec2.jpg)
+    - 当前的SA是通过IKE方法在两台主机之间协商而成，具有时效性。
+    - ipsec提供三个特性：每一个IP包的认证；验证数据完整性；数据包的加解密。其中认证和验证完整性都可以通过AH协议完成，这三个也都可以通过ESP协议完成。
+    - AH协议主要是对原数据包的整个包(包括头部)计算一个AH认证头摘要 ，放在最外一层的IP头后面
+    - ESP协议对原数据包除去最外一层IP头，剩下的部分进行加密。并添加ESP头和填充，append到最外一层IP头的后面。
+
 
