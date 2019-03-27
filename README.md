@@ -42,12 +42,9 @@ Firewall
         - https://github.com/antonioribeiro/firewall
         - https://github.com/puppetlabs/puppetlabs-firewall
     - 维护状态
-        - 哈希流表
         - 黑白名单
-        - 连接的状态（源、目的地址和端口，请求个数，连接时间）
     - workflow
-        - 通过流表判断新旧连接
-        - 如果有新的连接，读取源、目的地址和端口，根据这些对黑白名单进行查询，决定是否通过。有些防火墙会读取负载，并统计连接有关的信息(比如一段时间内的请求次数，可疑字符串等)，进行动态拦截。
+        - 每到达一个包，根据五元组在黑白名单中查找对应动作(drop/pass)，默认pass
 - iptables
     - 参考资料
         - ubuntu iptables 1.2.7
